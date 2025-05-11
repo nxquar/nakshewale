@@ -1,0 +1,23 @@
+
+/* Resetting default styles */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Page transition effect - matching original site */
+body {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+/* Hide scrollbar when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
