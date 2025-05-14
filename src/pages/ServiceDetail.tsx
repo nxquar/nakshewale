@@ -13,59 +13,131 @@ const services = [
     title: 'Architectural Design',
     slug: 'architectural-design',
     imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
-    description: "Our architectural design services encompass the entire process from conceptual development to construction documentation. We prioritize innovative solutions that respond to our clients' needs, site conditions, and cultural context.",
+    description: "We offer complete architectural design solutions tailored to houses, shops, commercial complexes, and factories—all aligned with Vastu principles. From vision to blueprint, we deliver designs that are functional, inspiring, and rooted in cultural relevance.",
     benefits: [
-      'Comprehensive needs analysis and site evaluation',
-      'Creative conceptual designs that reflect client vision',
-      'Detailed design development with 3D visualization',
-      'Sustainable design strategies and materials selection',
-      'Complete construction documentation',
-      'Coordination with consultants and contractors'
+      'Custom planning for residential, commercial & industrial spaces',
+      'Vastu-integrated layouts from day one',
+      'Concept to construction-ready documentation',
+      '3D visualizations for immersive client experience',
+      'Site-responsive, sustainable design solutions',
+      'Coordination with consultants for smooth execution'
     ]
   },
   {
-    title: 'Interior Architecture',
-    slug: 'interior-architecture',
-    imageUrl: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80',
-    description: "Our interior architecture services create thoughtfully designed spaces that enhance the user experience while seamlessly integrating with the overall architectural concept. We focus on materiality, spatial quality, lighting, and functional planning to create interiors that inspire and function beautifully.",
+    title: 'Interior Design',
+    slug: 'interior-design',
+    imageUrl: 'https://cdn.pixabay.com/photo/2024/09/19/02/23/living-room-9057382_1280.png',
+    description: "We craft beautiful, functional interiors that echo the architecture and enhance everyday life. From stylish homes to productive workspaces, every detail—from furniture to lighting—is tailored with precision and Vastu balance.",
     benefits: [
-      'Spatial planning and optimization',
-      'Material and finish selection',
-      'Custom furniture and fixture design',
-      'Lighting design and specification',
-      'Acoustical considerations and solutions',
-      'Art and accessory curation and placement'
+      'Tailored interior solutions for all types of buildings',
+      'Material, lighting, and layout harmony',
+      'Custom furniture & modular solutions',
+      'Vastu-compliant internal arrangements',
+      'Space optimization for flow and purpose',
+      'On-site supervision for execution perfection'
     ]
   },
   {
-    title: 'Urban Planning',
-    slug: 'urban-planning',
-    imageUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80',
-    description: "Our urban planning services address the complex challenges of developing cohesive, sustainable communities. We work at various scales from neighborhood planning to large-scale urban developments, focusing on creating places that enhance quality of life while addressing environmental, social, and economic considerations.",
+    title: 'Exterior Design',
+    slug: 'exterior-design',
+    imageUrl: 'https://www.home-designing.com/wp-content/uploads/2017/05/wood-white-and-charcoal-modern-exterior-paint-themes.jpg',
+    description: "Your building's first impression starts here. We shape stunning exteriors that reflect identity, purpose, and energy efficiency—always tuned with Vastu and site orientation.",
     benefits: [
-      'Comprehensive site analysis and context evaluation',
-      'Master planning for mixed-use developments',
-      'Public space and streetscape design',
-      'Transit-oriented development strategies',
-      'Sustainable urban infrastructure planning',
-      'Community engagement and participatory design processes'
+      'Facade design tailored to project scale',
+      'Material selection for durability & aesthetics',
+      'Landscape integration for harmony',
+      'Lighting & shading design',
+      'Vastu-informed elevation orientation',
+      'Visual coherence with surrounding context'
+    ]
+  },
+  {
+    title: 'Structural Design',
+    slug: 'structural-design',
+    imageUrl: 'https://erusuconsultants.com/wp-content/uploads/2023/04/Structural_Drawing.jpg',
+    description: "Strong buildings stand on strong foundations. We engineer resilient, safe, and efficient structural systems for homes, shops, commercial buildings, and factories—fully compliant with local codes and your vision.",
+    benefits: [
+      'Tailored RCC & steel structural solutions',
+      'Load analysis & safety compliance',
+      'Coordination with architectural plans',
+      'Economical use of materials',
+      'Seismic & wind-resistant design',
+      'Vastu-based structural placement when required'
+    ]
+  },
+  {
+    title: 'Building Planning',
+    slug: 'building-planning',
+    imageUrl: 'https://wordpress.bricknbolt.com/blogs-and-articles/wp-content/uploads/sites/2/2025/02/architectural-plans.webp',
+    description: "We create smart, functional building plans for homes, factories, shops, and offices—customized to your needs, site conditions, and future expansions. Every layout is optimized for purpose and performance.",
+    benefits: [
+      'Tailored layouts for all building types',
+      'Efficient space utilization & zoning',
+      'Scope for future scalability',
+      'Integration with structure & elevation',
+      'Client-focused planning process',
+      'Code-compliant & technically sound plans'
+    ]
+  },
+  {
+    title: 'Vastu Consultation',
+    slug: 'vastu-consultation',
+    imageUrl: 'https://navgrahorbit.com/wp-content/uploads/2025/02/vastu-consultant.webp',
+    description: "We bring ancient Vastu wisdom into modern construction. Whether you're building new or correcting an existing space, our guidance ensures peace, prosperity, and energy harmony.",
+    benefits: [
+      'Plot analysis and directional energy mapping',
+      'Room and function placement as per Vastu',
+      'Corrections for existing buildings',
+      'On-site evaluation and remedies',
+      'Vastu integration with architecture & interiors',
+      'Ideal for homes, shops, offices, and factories'
+    ]
+  },
+  {
+    title: 'Government Approvals & Documentation',
+    slug: 'government-approvals',
+    imageUrl: 'https://cdn.pixabay.com/photo/2019/12/18/13/07/right-4703934_1280.jpg',
+    description: "We handle the paperwork while you focus on the project. Our team ensures swift and compliant approval processes for building plans, completion certificates, and more.",
+    benefits: [
+      'Building plan approval from local authorities',
+      'Completion & occupancy certificates',
+      'Documentation for residential & commercial permits',
+      'Factory layout approvals & NOCs',
+      'Regulatory compliance consulting',
+      'End-to-end support from submission to sanction'
     ]
   },
   {
     title: 'Project Management',
     slug: 'project-management',
-    imageUrl: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&q=80',
-    description: "Our project management services ensure that architectural projects are delivered on time, within budget, and to the highest quality standards. We oversee all aspects of the construction process, serving as the client's representative and advocate throughout the project.",
+    imageUrl: 'https://www.sinnaps.com/wp-content/uploads/2017/12/construction-project-management-2.jpg',
+    description: "We manage your project like it’s our own—from planning to handover. We ensure everything’s on schedule, under budget, and built exactly as promised—with constant client communication.",
     benefits: [
-      'Comprehensive project scheduling and milestone tracking',
-      'Budget development, monitoring, and cost control',
-      'Contractor selection and bid management',
-      'Construction administration and quality control',
-      'Regular progress reporting and client communication',
-      'Risk assessment and management strategies'
+      'Timeline & budget control',
+      'Contractor coordination',
+      'Site supervision & quality assurance',
+      'Issue resolution & risk mitigation',
+      'Progress updates & reporting',
+      'Smooth workflow from design to delivery'
+    ]
+  },
+  {
+    title: '3D Visualization',
+    slug: '3d-visualization',
+    imageUrl: 'https://images.unsplash.com/photo-1599422314077-f4dfdaa4cd8b?auto=format&fit=crop&q=80',
+    description: "See it before you build it. Our photorealistic 3D visualizations bring your project to life—helping you make confident decisions about space, design, materials, and finishes.",
+    benefits: [
+      'High-quality 3D renders for interior & exterior',
+      'Walkthrough animations for immersive experience',
+      'Design validation before execution',
+      'Client-friendly visual presentations',
+      'Multiple view angles and lighting options',
+      'Virtual staging to explore finishes & furniture options'
     ]
   }
 ];
+
+
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -179,19 +251,30 @@ const ServiceDetail = () => {
                   </li>
                 ))}
               </ul>
-              
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center px-6 py-3 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
-              >
-                Inquire about this service
-              </Link>
+              <a 
+  href="https://wa.me/919876605658"
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="inline-flex items-center px-6 py-3 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
+>
+  Inquire about this service
+</a>
+
+
             </div>
           </div>
+          
+{/* Appointment and Consultation Cards */}
+<div className="mt-8">  {/* Added mt-8 for spacing */}
+  <AppointmentCard />
+</div>
+
+<div className="mt-8">  {/* Added mt-8 for spacing */}
+  <ConsultationCard />
+</div>
         </div>
       </main>
-        <AppointmentCard></AppointmentCard>
-            <ConsultationCard></ConsultationCard>
+      
       <Footer />
     </div>
   );

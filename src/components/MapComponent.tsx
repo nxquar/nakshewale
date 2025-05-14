@@ -30,8 +30,7 @@ export function MapComponent() {
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-xl w-full">
               <div className={`absolute inset-0 transition-opacity duration-500 ${mapLoaded ? 'opacity-100' : 'opacity-0'}`}>
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.1599945710584!2d28.976295!3d41.008199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9bde0c66ac9%3A0x7671d1b9817371c6!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1650361596379!5m2!1sen!2sus" 
-                  width="100%" 
+src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d773.6712381865983!2d75.87601626958094!3d31.943574998376405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDU2JzM2LjkiTiA3NcKwNTInMzYuMCJF!5e1!3m2!1sen!2sin!4v1747204462536!5m2!1sen!2sin"                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen 

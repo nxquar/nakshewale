@@ -1,32 +1,25 @@
-
 import { useParams, Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ArrowLeft, Calendar, User, Building, Grid, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Calendar, ChevronRight } from 'lucide-react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
-import { MapComponent } from '@/components/MapComponent';
 import { AppointmentCard } from '@/components/AppointmentCard';
 import { ConsultationCard } from '@/components/ConsultationCard';
-
-// Project data
 const projects = [
   {
     id: 1,
     title: 'Modern Residential Complex',
     category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.57_a35b130c.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNTdfYTM1YjEzMGMuanBnIiwiaWF0IjoxNzQ3MjAxMjgxLCJleHAiOjQ5MDA4MDEyODF9.R3Z9A5lGOr464KIsr6Qo8Kyc6nG59sX0Ti-s5mjwsZg',
     description: 'A contemporary residential complex featuring sustainable materials and innovative design.',
     slug: 'modern-residential-complex',
     details: {
-      client: 'Residential Development Corp.',
       date: 'January 2023',
-      location: 'Istanbul, Turkey',
-      area: '12,000 m²',
       fullDescription: 'This modern residential complex represents our commitment to creating living spaces that balance aesthetics with functionality. Featuring 45 units ranging from studio apartments to three-bedroom residences, the complex integrates sustainable building materials and energy-efficient systems throughout. The design incorporates abundant natural light, versatile communal spaces, and a cohesive relationship with the surrounding landscape.',
       images: [
-        'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1503174971373-b1f69850bded?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.57_a35b130c.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNTdfYTM1YjEzMGMuanBnIiwiaWF0IjoxNzQ3MjAxMjgxLCJleHAiOjQ5MDA4MDEyODF9.R3Z9A5lGOr464KIsr6Qo8Kyc6nG59sX0Ti-s5mjwsZg',
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.58_2abd071b.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNThfMmFiZDA3MWIuanBnIiwiaWF0IjoxNzQ3MjAxNzI4LCJleHAiOjQ5MDA4MDE3Mjh9.N4OJKng8s_rrLJLXAu-AGMCvwo1_LEL6DMHfkCzv75k',
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.58_e49a3496.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNThfZTQ5YTM0OTYuanBnIiwiaWF0IjoxNzQ3MjAxNzg4LCJleHAiOjQ5MDA4MDE3ODh9.r1hb4n_qM-ndUH_eP1ndi1O-ouOEabZ5n7ykfp-hxoc'
       ]
     }
   },
@@ -34,19 +27,15 @@ const projects = [
     id: 2,
     title: 'Corporate Headquarters',
     category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/2/Screenshot%202025-05-13%20225317.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8yL1NjcmVlbnNob3QgMjAyNS0wNS0xMyAyMjUzMTcucG5nIiwiaWF0IjoxNzQ3MjAxMzA3LCJleHAiOjQ5MDA4MDEzMDd9.TO39TPFvskBFRgA1gNTMvCBteNhoTs0MqrRbx_7AsNM',
     description: 'An award-winning corporate headquarters that combines functionality with striking aesthetics.',
     slug: 'corporate-headquarters',
     details: {
-      client: 'Global Tech Inc.',
       date: 'March 2022',
-      location: 'Ankara, Turkey',
-      area: '8,500 m²',
       fullDescription: 'This corporate headquarters was designed to reflect the innovative spirit of our client while providing a functional workspace that enhances collaboration and productivity. The building features a striking glass facade that maximizes natural light while minimizing solar gain. The interior spaces are organized around a central atrium that serves as both a visual anchor and a gathering space for employees and visitors.',
       images: [
-        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/2/Screenshot%202025-05-13%20225317.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8yL1NjcmVlbnNob3QgMjAyNS0wNS0xMyAyMjUzMTcucG5nIiwiaWF0IjoxNzQ3MjAxMzA3LCJleHAiOjQ5MDA4MDEzMDd9.TO39TPFvskBFRgA1gNTMvCBteNhoTs0MqrRbx_7AsNM',
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/2/Screenshot%202025-05-13%20225505.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8yL1NjcmVlbnNob3QgMjAyNS0wNS0xMyAyMjU1MDUucG5nIiwiaWF0IjoxNzQ3MjAxODUwLCJleHAiOjQ5MDA4MDE4NTB9.P6ZeVOxmNHNstLT3MorZsLFBfQx3Oc9GVE0Tb0YM7LY'
       ]
     }
   },
@@ -54,79 +43,89 @@ const projects = [
     id: 3,
     title: 'Urban Renewal Project',
     category: 'Urban Planning',
-    imageUrl: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_ac882480.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYWM4ODI0ODAuanBnIiwiaWF0IjoxNzQ3MjAxMzMyLCJleHAiOjQ5MDA4MDEzMzJ9.uX2h0tgpoPokmvbUNsGz25nM1qgpFyLBmNXd4yU6q60',
     description: 'Transforming urban spaces into vibrant, sustainable community hubs.',
     slug: 'urban-renewal-project',
     details: {
-      client: 'City Municipality',
       date: 'July 2021',
-      location: 'Istanbul, Turkey',
-      area: '25,000 m²',
       fullDescription: 'This urban renewal project transformed an underutilized industrial area into a vibrant mixed-use district that serves as a hub for community activities, commerce, and culture. The master plan preserves several historic industrial buildings while introducing new structures that complement the existing urban fabric. Public spaces, including parks, plazas, and pedestrian corridors, weave through the development to create a cohesive and accessible environment.',
       images: [
-        'https://images.unsplash.com/photo-1533832100063-f52ef5c25ff2?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1548275147-72271d07dff3?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_ac882480.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYWM4ODI0ODAuanBnIiwiaWF0IjoxNzQ3MjAxMzMyLCJleHAiOjQ5MDA4MDEzMzJ9.uX2h0tgpoPokmvbUNsGz25nM1qgpFyLBmNXd4yU6q60',
       ]
     }
   },
   {
     id: 4,
-    title: 'Cultural Center',
-    category: 'Public',
-    imageUrl: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&q=80',
-    description: 'A multifunctional cultural center that serves as a landmark for the community.',
-    slug: 'cultural-center',
+    title: 'Guest House Commercial',
+    category: 'Commercial',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_bbf87b29.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYmJmODdiMjkuanBnIiwiaWF0IjoxNzQ3MjAxMzY4LCJleHAiOjQ5MDA4MDEzNjh9.92aMNZ7MGmcSvJ4RqiIIefzGC9pWKPxMUMpljYMrPSs',
+    description: 'A comfortable guest house with strong commercial appeal.',
+    slug: 'guest-house-commercial',
     details: {
-      client: 'Ministry of Culture',
       date: 'November 2022',
-      location: 'Izmir, Turkey',
-      area: '6,800 m²',
-      fullDescription: 'This cultural center was conceived as both a functional venue for various cultural activities and a landmark that contributes to the identity of the community. The building houses a 400-seat theater, exhibition spaces, workshops, and educational facilities. Its distinctive form draws inspiration from traditional Turkish architectural motifs, reinterpreted in a contemporary language. The center serves as a catalyst for cultural engagement and civic pride.',
+      fullDescription: 'This guest house commercial project was designed to provide comfortable accommodations while maintaining a strong commercial appeal. The architecture blends modern aesthetics with functional spaces to create an inviting atmosphere for guests.',
       images: [
-        'https://images.unsplash.com/photo-1529084177577-4228cdcc0ad1?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1542069774-d61b8a242e1c?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1575252056748-20f24b5f0630?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_bbf87b29.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYmJmODdiMjkuanBnIiwiaWF0IjoxNzQ3MjAxMzY4LCJleHAiOjQ5MDA4MDEzNjh9.92aMNZ7MGmcSvJ4RqiIIefzGC9pWKPxMUMpljYMrPSs',
       ]
     }
   },
   {
     id: 5,
-    title: 'Luxury Villa',
+    title: 'Modern Residential Complex',
     category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80',
-    description: 'An exclusive seaside villa that harmonizes with its natural surroundings.',
-    slug: 'luxury-villa',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_7b72a57a.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfN2I3MmE1N2EuanBnIiwiaWF0IjoxNzQ3MjAxMzg5LCJleHAiOjQ5MDA4MDEzODl9.eh2hLpuGJp_vx4-IQdDDV8Lco_P2veLlu_biS5tJai4',
+    description: 'A contemporary residential complex featuring sustainable materials and innovative design.',
+    slug: 'modern-residential-complex',
     details: {
-      client: 'Private Client',
-      date: 'August 2023',
-      location: 'Bodrum, Turkey',
-      area: '950 m²',
-      fullDescription: 'This luxury seaside villa was designed to create a seamless connection between indoor living spaces and the magnificent coastal landscape. The architecture emphasizes horizontal planes and transparent boundaries that frame views of the sea and surrounding hills. Natural materials, including local stone and timber, establish a visual harmony with the site while providing thermal mass for passive climate control. The villa includes five bedroom suites, expansive living areas, and a range of amenity spaces.',
+      date: 'November 2022',
+      fullDescription: 'This guest house commercial project was designed to provide comfortable accommodations while maintaining a strong commercial appeal. The architecture blends modern aesthetics with functional spaces to create an inviting atmosphere for guests.',
       images: [
-        'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1618221058355-6a0587d9edbc?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_7b72a57a.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfN2I3MmE1N2EuanBnIiwiaWF0IjoxNzQ3MjAxMzg5LCJleHAiOjQ5MDA4MDEzODl9.eh2hLpuGJp_vx4-IQdDDV8Lco_P2veLlu_biS5tJai4',
       ]
     }
   },
   {
     id: 6,
-    title: 'Tech Innovation Campus',
+    title: 'Corporate Headquarters',
     category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?auto=format&fit=crop&q=80',
-    description: 'A sustainable campus designed for innovation and collaboration.',
-    slug: 'tech-innovation-campus',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/real/WhatsApp%20Image%202025-05-13%20at%2021.37.04_5ac71100.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy9yZWFsL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTMgYXQgMjEuMzcuMDRfNWFjNzExMDAuanBnIiwiaWF0IjoxNzQ3MjAxNTExLCJleHAiOjQ5MDA4MDE1MTF9.habJSusNjomQ5ePF9gQHhyN8TzxI7buiUsqUClgNtA8',
+    description: 'An award-winning corporate headquarters that combines functionality with striking aesthetics.',
+    slug: 'corporate-headquarters',
     details: {
-      client: 'Tech Solutions Group',
-      date: 'February 2022',
-      location: 'Istanbul, Turkey',
-      area: '15,000 m²',
-      fullDescription: 'This technology innovation campus creates an environment that fosters creativity, collaboration, and well-being for employees and visitors. The project comprises four interconnected buildings organized around a central courtyard that serves as the heart of the campus. The architecture employs a modular system that allows for flexibility and future adaptation. Sustainable features include photovoltaic arrays, green roofs, rainwater harvesting, and efficient building systems that minimize energy consumption.',
+      date: 'November 2022',
+      fullDescription: 'This guest house commercial project was designed to provide comfortable accommodations while maintaining a strong commercial appeal. The architecture blends modern aesthetics with functional spaces to create an inviting atmosphere for guests.',
       images: [
-        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80'
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/real/WhatsApp%20Image%202025-05-13%20at%2021.37.04_5ac71100.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy9yZWFsL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTMgYXQgMjEuMzcuMDRfNWFjNzExMDAuanBnIiwiaWF0IjoxNzQ3MjAxNTExLCJleHAiOjQ5MDA4MDE1MTF9.habJSusNjomQ5ePF9gQHhyN8TzxI7buiUsqUClgNtA8',
+      ]
+    }
+  },
+  {
+    id: 7,
+    title: 'Urban Renewal Project',
+    category: 'Urban Planning',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_aa20a85e.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfYWEyMGE4NWUuanBnIiwiaWF0IjoxNzQ3MjAxNDE1LCJleHAiOjQ5MDA4MDE0MTV9.4Ehkz-_S4vJplfbFQf2ORBSB7ZdLXDFH8ZLxPY9An-Y',
+    description: 'Transforming urban spaces into vibrant, sustainable community hubs.',
+    slug: 'urban-renewal-project',
+    details: {
+      date: 'November 2022',
+      fullDescription: 'This guest house commercial project was designed to provide comfortable accommodations while maintaining a strong commercial appeal. The architecture blends modern aesthetics with functional spaces to create an inviting atmosphere for guests.',
+      images: [
+        'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_aa20a85e.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfYWEyMGE4NWUuanBnIiwiaWF0IjoxNzQ3MjAxNDE1LCJleHAiOjQ5MDA4MDE0MTV9.4Ehkz-_S4vJplfbFQf2ORBSB7ZdLXDFH8ZLxPY9An-Y',
+      ]
+    }
+  },
+  {
+    id: 8,
+    title: 'Guest House Commercial',
+    category: 'Commercial',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_f4c6adef.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfZjRjNmFkZWYuanBnIiwiaWF0IjoxNzQ3MjAxNDU2LCJleHAiOjQ5MDA4MDE0NTZ9.zm5BAFIG652pVzIFIDonA7b_GNjfw5welwv7cW1Z_go',
+    description: 'A comfortable guest house with strong commercial appeal.',
+    slug: 'guest-house-commercial',
+    details: {
+      date: 'November 2022',
+      fullDescription: 'This guest house commercial project was designed to provide comfortable accommodations while maintaining a strong commercial appeal. The architecture blends modern aesthetics with functional spaces to create an inviting atmosphere for guests.',
+      images: [
+   'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_f4c6adef.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfZjRjNmFkZWYuanBnIiwiaWF0IjoxNzQ3MjAxNDU2LCJleHAiOjQ5MDA4MDE0NTZ9.zm5BAFIG652pVzIFIDonA7b_GNjfw5welwv7cW1Z_go',
       ]
     }
   }
@@ -137,21 +136,15 @@ const ProjectDetail = () => {
   const project = projects.find(p => p.slug === slug);
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
-    // Add page loaded animation
     document.body.classList.add('page-loaded');
     
-    // Initialize animations for this page
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const element = entry.target as HTMLElement;
           const delay = element.dataset.delay ? parseInt(element.dataset.delay) : 0;
-          
           setTimeout(() => {
             element.classList.add('animated');
           }, delay);
@@ -195,7 +188,6 @@ const ProjectDetail = () => {
       <Navbar />
       
       <main className="flex-grow pt-24">
-        {/* Breadcrumb */}
         <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-6">
           <div className="flex items-center text-sm text-muted-foreground">
             <Link to="/" className="hover:text-orange-500">Home</Link>
@@ -206,7 +198,6 @@ const ProjectDetail = () => {
           </div>
         </div>
         
-        {/* Hero Section */}
         <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-16">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="max-w-2xl animate-on-scroll slide-up">
@@ -217,8 +208,7 @@ const ProjectDetail = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6">{project.title}</h1>
               <p className="text-lg text-muted-foreground mb-8">{project.details.fullDescription}</p>
               
-              {/* Project Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 border-t border-b py-6 mb-8">
+              <div className="border-t border-b py-6 mb-8">
                 <div className="flex items-start">
                   <Calendar size={20} className="mr-3 text-orange-500 mt-1" />
                   <div>
@@ -226,35 +216,12 @@ const ProjectDetail = () => {
                     <p>{project.details.date}</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <User size={20} className="mr-3 text-orange-500 mt-1" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Client</p>
-                    <p>{project.details.client}</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Building size={20} className="mr-3 text-orange-500 mt-1" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p>{project.details.location}</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Grid size={20} className="mr-3 text-orange-500 mt-1" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">Area</p>
-                    <p>{project.details.area}</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Project Images */}
         <div className="container mx-auto px-6 md:px-16 lg:px-24 mb-20">
-          {/* Main Image */}
           <div className="mb-8 rounded-3xl overflow-hidden shadow-lg animate-on-scroll">
             <img 
               src={project.imageUrl} 
@@ -263,8 +230,7 @@ const ProjectDetail = () => {
             />
           </div>
           
-          {/* Image Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {project.details.images.map((img, index) => (
               <div 
                 key={index} 
@@ -279,10 +245,17 @@ const ProjectDetail = () => {
               </div>
             ))}
           </div>
+
+          <div className="mt-8">
+            <AppointmentCard />
+          </div>
+
+          <div className="mt-8">
+            <ConsultationCard />
+          </div>
         </div>
       </main>
-      <AppointmentCard></AppointmentCard>
-      <ConsultationCard></ConsultationCard>
+      
       <Footer />
     </div>
   );

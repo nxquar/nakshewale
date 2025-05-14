@@ -14,10 +14,9 @@ export function Hero() {
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   
-  // Text for typewriter effect
-  const headingText = "Design that transforms spaces into experiences";
-  const subheadingText = "We create architectural solutions that combine aesthetics, functionality, and innovation to elevate every project.";
-  
+  const headingText = "We don’t design buildings. We design experiences.";
+const subheadingText = "Pushing boundaries of structure and space to create architecture that surprises, engages, and evolves.";
+
   // Track scroll progress for logo visibility
   useEffect(() => {
     const handleScroll = () => {
@@ -65,28 +64,35 @@ export function Hero() {
       });
     }
     
+    
     // Type writer effect for subheading
     if (subheadingRef.current) {
       const subheading = subheadingRef.current;
       subheading.innerHTML = "";
       
       const words = subheadingText.split(" ");
-      words.forEach((word, index) => {
-        const span = document.createElement("span");
-        span.textContent = (index > 0 ? " " : "") + word;
-        span.style.opacity = "0";
-        span.style.transform = "translateY(10px)";
-        span.style.display = "inline-block";
-        subheading.appendChild(span);
-        
-        gsap.to(span, {
-          opacity: 1,
-          y: 0,
-          duration: 0.3,
-          delay: 1.5 + (index * 0.05),
-          ease: "power2.out"
-        });
-      });
+     words.forEach((word, index) => {
+  const span = document.createElement("span");
+  span.textContent = word;
+  span.style.opacity = "0";
+  span.style.transform = "translateY(10px)";
+  span.style.display = "inline-block";
+  subheading.appendChild(span);
+
+  // Add space after the word, except the last one
+  if (index < words.length - 1) {
+    subheading.appendChild(document.createTextNode(" "));
+  }
+
+  gsap.to(span, {
+    opacity: 1,
+    y: 0,
+    duration: 0.3,
+    delay: 1.5 + (index * 0.05),
+    ease: "power2.out"
+  });
+});
+
     }
     
     // Set up parallax effect without shrinking the frame

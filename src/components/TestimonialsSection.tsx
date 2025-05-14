@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
@@ -13,44 +12,29 @@ import {
 type Testimonial = {
   id: number;
   name: string;
-  role: string;
-  company: string;
   quote: string;
-  imageUrl: string;
 };
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CEO",
-    company: "Modern Living Spaces",
-    quote: "The team at NAKSHA transformed our vision into reality. Their attention to detail and innovative solutions exceeded our expectations and delivered a truly magnificent project.",
-    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80"
+    name: "Ravi Thakur",
+    quote: "The team at NAKSHEWALE transformed our vision into reality. Their attention to detail and innovative solutions exceeded our expectations and delivered a truly magnificent project."
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Property Developer",
-    company: "Horizon Developments",
-    quote: "Working with NAKSHA has been a revelation. Their understanding of sustainable architecture and ability to blend aesthetic beauty with functionality is unmatched in the industry.",
-    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80"
+    name: "Amit Sharma",
+    quote: "Working with NAKSHEWALE has been a revelation. Their understanding of sustainable architecture and ability to blend aesthetic beauty with functionality is unmatched in the industry."
   },
   {
     id: 3,
-    name: "Aisha Patel",
-    role: "Director",
-    company: "Urban Revitalization Fund",
-    quote: "NAKSHA's approach to urban planning has transformed our community projects. They listen, understand local needs, and create spaces that truly enhance community life.",
-    imageUrl: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80"
+    name: "Priya Sharma",
+    quote: "NAKSHEWALE's approach to urban planning has transformed our community projects. They listen, understand local needs, and create spaces that truly enhance community life."
   },
   {
     id: 4,
-    name: "Robert Wilson",
-    role: "Homeowner",
-    company: "",
-    quote: "Our dream home became a reality thanks to NAKSHA. They captured our vision perfectly while adding creative touches we never would have thought of ourselves.",
-    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
+    name: "Sandeep Thakur",
+    quote: "Our dream home became a reality thanks to NAKSHEWALE. They captured our vision perfectly while adding creative touches we never would have thought of ourselves."
   }
 ];
 
@@ -111,7 +95,7 @@ export function TestimonialsSection() {
         >
           <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-4">Client Testimonials</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with NAKSHA
+            Don't just take our word for it. Here's what our clients have to say about working with NAKSHEWALE
           </p>
         </motion.div>
         
@@ -128,13 +112,7 @@ export function TestimonialsSection() {
                 <CarouselItem key={testimonial.id} className="md:basis-3/4 lg:basis-2/3 pl-4">
                   <div className="bg-white rounded-xl p-8 md:p-10 shadow-md border border-orange-100">
                     <div className="flex flex-col md:flex-row gap-6 items-center">
-                      <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-                        <img 
-                          src={testimonial.imageUrl} 
-                          alt={testimonial.name} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                      {/* Removed avatar circle */}
                       <div className="flex-grow">
                         <svg 
                           className="h-8 w-8 text-orange-300 mb-4" 
@@ -147,7 +125,6 @@ export function TestimonialsSection() {
                         <p className="text-xl text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
                         <div>
                           <h4 className="font-medium text-lg">{testimonial.name}</h4>
-                          <p className="text-muted-foreground">{testimonial.role}{testimonial.company && `, ${testimonial.company}`}</p>
                         </div>
                       </div>
                     </div>

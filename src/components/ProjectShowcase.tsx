@@ -11,7 +11,7 @@ import {
   type CarouselApi
 } from "@/components/ui/carousel";
 import { Building, Landmark, Layers, Compass, Ruler } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 
 type Project = {
@@ -22,40 +22,40 @@ type Project = {
   description: string;
   slug: string;
 };
-
 const featuredProjects: Project[] = [
   {
     id: 1,
     title: 'Modern Residential Complex',
     category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80',
-    description: 'A contemporary residential complex featuring sustainable materials and innovative design. The project includes 50 residential units, community spaces, and green areas designed to promote social interaction while respecting the environment.',
-    slug: 'modern-residential-complex'
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.57_a35b130c.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNTdfYTM1YjEzMGMuanBnIiwiaWF0IjoxNzQ3MjAxMjgxLCJleHAiOjQ5MDA4MDEyODF9.R3Z9A5lGOr464KIsr6Qo8Kyc6nG59sX0Ti-s5mjwsZg',
+    description: 'A contemporary residential complex featuring sustainable materials and innovative design.',
+    slug: 'modern-residential-complex',
   },
   {
-    id: 4,
-    title: 'Cultural Center',
-    category: 'Public',
-    imageUrl: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&q=80',
-    description: 'A multifunctional cultural center that serves as a landmark for the community. This 10,000 square meter facility includes exhibition spaces, performance halls, and educational areas designed to celebrate local heritage while offering a contemporary architectural statement.',
-    slug: 'cultural-center'
+    id: 2,
+    title: 'Corporate Headquarters',
+    category: 'Residential',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/2/Screenshot%202025-05-13%20225317.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8yL1NjcmVlbnNob3QgMjAyNS0wNS0xMyAyMjUzMTcucG5nIiwiaWF0IjoxNzQ3MjAxMzA3LCJleHAiOjQ5MDA4MDEzMDd9.TO39TPFvskBFRgA1gNTMvCBteNhoTs0MqrRbx_7AsNM',
+    description: 'An award-winning corporate headquarters that combines functionality with striking aesthetics.',
+    slug: 'corporate-headquarters',
   },
   {
-    id: 6,
-    title: 'Tech Innovation Campus',
-    category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?auto=format&fit=crop&q=80',
-    description: 'A sustainable campus designed for innovation and collaboration. The project features flexible workspaces, research facilities, and sustainable design elements including solar panels, rainwater harvesting systems, and energy-efficient building materials.',
-    slug: 'tech-innovation-campus'
-  }
+    id: 3,
+    title: 'Luxury Bungalow Retreat',
+    category: 'Residential',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_ac882480.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYWM4ODI0ODAuanBnIiwiaWF0IjoxNzQ3MjAxMzMyLCJleHAiOjQ5MDA4MDEzMzJ9.uX2h0tgpoPokmvbUNsGz25nM1qgpFyLBmNXd4yU6q60',
+    description: 'Transforming urban spaces into vibrant, sustainable community hubs.',
+    slug: 'urban-renewal-project',
+  },
 ];
+
 
 export function ProjectShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [currentProject, setCurrentProject] = useState(0);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
-  
+  const navigate = useNavigate();
   // Set up auto-scroll for the carousel
   useEffect(() => {
     if (api) {
@@ -302,27 +302,29 @@ export function ProjectShowcase() {
         </div>
         
         <div className="mt-12 text-center px-6">
-          <Link 
-            to="/projects" 
-            className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            Explore All Projects
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="ml-2"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
+
+<button 
+  onClick={() => navigate('/projects')} 
+  className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg"
+>
+  Explore All Projects
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className="ml-2"
+  >
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
+  </svg>
+</button>
+
         </div>
       </div>
     </section>

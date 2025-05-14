@@ -1,38 +1,37 @@
-
-import { SquarePen, Building, Ruler, Compass, ArrowRight } from 'lucide-react';
+import { Building2, Users, Award, Lightbulb, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function ServicesSection() {
-  const services = [
-    {
-      icon: <SquarePen size={36} />,
-      title: 'Architectural Design',
-      description: 'From concept to completion, we create architectural solutions that perfectly balance form and function.',
-      slug: 'architectural-design',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80'
-    },
-    {
-      icon: <Building size={36} />,
-      title: 'Interior Architecture',
-      description: 'We craft interior spaces that enhance the user experience while complementing the overall architectural vision.',
-      slug: 'interior-architecture',
-      image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80'
-    },
-    {
-      icon: <Ruler size={36} />,
-      title: 'Urban Planning',
-      description: 'Our urban planning services focus on creating sustainable, vibrant, and functional community spaces.',
-      slug: 'urban-planning',
-      image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80'
-    },
-    {
-      icon: <Compass size={36} />,
-      title: 'Project Management',
-      description: 'We oversee every aspect of project execution to ensure quality, timeliness, and budget adherence.',
-      slug: 'project-management',
-      image: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&q=80'
-    },
-  ];
+ const services = [
+  {
+    icon: <Building2 size={36} />,
+    title: 'Architectural Design',
+    description: 'Comprehensive architectural services that turn concepts into reality with sustainable and custom solutions.',
+    slug: 'architectural-design',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
+  },
+  {
+    icon: <Lightbulb size={36} />,
+    title: 'Interior Architecture',
+    description: 'Thoughtfully designed interiors that maximize space, comfort, and productivity.',
+    slug: 'interior-architecture',
+    image: 'https://cdn.pixabay.com/photo/2024/09/19/02/23/living-room-9057382_1280.png',
+  },
+  {
+    icon: <Building2 size={36} />,
+    title: '3D Elevation & Visualization',
+    description: 'Stunning 3D elevations and walkthroughs that help you visualize your project before it’s built.',
+    slug: '3d-elevation',
+    image: 'https://yousee.studio/image/image-sizer.webp?image=%2Fstorage%2Fimages%2Fcontent%2F3d-floor-plan_2.jpg&width=2560',
+  },
+  {
+    icon: <Award size={36} />,
+    title: 'Government Approvals',
+    description: 'Hassle-free handling of documentation and permits for construction compliance.',
+    slug: 'government-approvals',
+    image: 'https://cdn.pixabay.com/photo/2019/12/18/13/07/right-4703934_1280.jpg',
+  },
+];
 
   return (
     <section id="services" className="section-padding bg-white">
@@ -40,22 +39,22 @@ export function ServicesSection() {
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">Our Services</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            We offer a comprehensive range of architectural services to bring your vision to life.
+            Comprehensive design services for homeowners, developers, and businesses alike.
           </p>
         </div>
-        
+
         <div className="space-y-12">
           {services.map((service, index) => (
             <Link
               to={`/service/${service.slug}`}
-              key={index} 
+              key={index}
               className="block bg-white border border-orange-100 rounded-2xl hover:shadow-lg transition-shadow animate-on-scroll hover:bg-orange-50/50 group overflow-hidden"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className={`flex flex-col md:flex-row ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                 <div className="md:w-1/2 overflow-hidden">
-                  <img 
-                    src={service.image} 
+                  <img
+                    src={service.image}
                     alt={service.title}
                     className="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -75,8 +74,7 @@ export function ServicesSection() {
             </Link>
           ))}
         </div>
-        
-        {/* New "See All Services" button */}
+
         <div className="flex justify-center mt-16 animate-on-scroll">
           <Link
             to="/services"

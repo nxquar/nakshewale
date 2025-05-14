@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -19,7 +18,7 @@ const projects = [
     id: 1,
     title: 'Modern Residential Complex',
     category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/1/WhatsApp%20Image%202025-05-12%20at%2014.07.57_a35b130c.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8xL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDcuNTdfYTM1YjEzMGMuanBnIiwiaWF0IjoxNzQ3MjAxMjgxLCJleHAiOjQ5MDA4MDEyODF9.R3Z9A5lGOr464KIsr6Qo8Kyc6nG59sX0Ti-s5mjwsZg',
     description: 'A contemporary residential complex featuring sustainable materials and innovative design.',
     slug: 'modern-residential-complex',
   },
@@ -27,7 +26,7 @@ const projects = [
     id: 2,
     title: 'Corporate Headquarters',
     category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/2/Screenshot%202025-05-13%20225317.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8yL1NjcmVlbnNob3QgMjAyNS0wNS0xMyAyMjUzMTcucG5nIiwiaWF0IjoxNzQ3MjAxMzA3LCJleHAiOjQ5MDA4MDEzMDd9.TO39TPFvskBFRgA1gNTMvCBteNhoTs0MqrRbx_7AsNM',
     description: 'An award-winning corporate headquarters that combines functionality with striking aesthetics.',
     slug: 'corporate-headquarters',
   },
@@ -35,39 +34,55 @@ const projects = [
     id: 3,
     title: 'Urban Renewal Project',
     category: 'Urban Planning',
-    imageUrl: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937?auto=format&fit=crop&q=80',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_ac882480.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYWM4ODI0ODAuanBnIiwiaWF0IjoxNzQ3MjAxMzMyLCJleHAiOjQ5MDA4MDEzMzJ9.uX2h0tgpoPokmvbUNsGz25nM1qgpFyLBmNXd4yU6q60',
     description: 'Transforming urban spaces into vibrant, sustainable community hubs.',
     slug: 'urban-renewal-project',
   },
   {
     id: 4,
-    title: 'Cultural Center',
-    category: 'Public',
-    imageUrl: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&q=80',
-    description: 'A multifunctional cultural center that serves as a landmark for the community.',
-    slug: 'cultural-center',
+    title: 'Guest House Commercial',
+    category: 'Commercial',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.36_bbf87b29.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzZfYmJmODdiMjkuanBnIiwiaWF0IjoxNzQ3MjAxMzY4LCJleHAiOjQ5MDA4MDEzNjh9.92aMNZ7MGmcSvJ4RqiIIefzGC9pWKPxMUMpljYMrPSs',
+    description: 'A comfortable guest house with strong commercial appeal.',
+    slug: 'guest-house-commercial',
   },
   {
     id: 5,
-    title: 'Luxury Villa',
+    title: 'Modern Residential Complex',
     category: 'Residential',
-    imageUrl: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&q=80',
-    description: 'An exclusive seaside villa that harmonizes with its natural surroundings.',
-    slug: 'luxury-villa',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_7b72a57a.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfN2I3MmE1N2EuanBnIiwiaWF0IjoxNzQ3MjAxMzg5LCJleHAiOjQ5MDA4MDEzODl9.eh2hLpuGJp_vx4-IQdDDV8Lco_P2veLlu_biS5tJai4',
+    description: 'A contemporary residential complex featuring sustainable materials and innovative design.',
+    slug: 'modern-residential-complex',
   },
   {
     id: 6,
-    title: 'Tech Innovation Campus',
+    title: 'Corporate Headquarters',
     category: 'Commercial',
-    imageUrl: 'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?auto=format&fit=crop&q=80',
-    description: 'A sustainable campus designed for innovation and collaboration.',
-    slug: 'tech-innovation-campus',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/real/WhatsApp%20Image%202025-05-13%20at%2021.37.04_5ac71100.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy9yZWFsL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTMgYXQgMjEuMzcuMDRfNWFjNzExMDAuanBnIiwiaWF0IjoxNzQ3MjAxNTExLCJleHAiOjQ5MDA4MDE1MTF9.habJSusNjomQ5ePF9gQHhyN8TzxI7buiUsqUClgNtA8',
+    description: 'An award-winning corporate headquarters that combines functionality with striking aesthetics.',
+    slug: 'corporate-headquarters',
   },
+  {
+    id: 7,
+    title: 'Urban Renewal Project',
+    category: 'Urban Planning',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_aa20a85e.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfYWEyMGE4NWUuanBnIiwiaWF0IjoxNzQ3MjAxNDE1LCJleHAiOjQ5MDA4MDE0MTV9.4Ehkz-_S4vJplfbFQf2ORBSB7ZdLXDFH8ZLxPY9An-Y',
+    description: 'Transforming urban spaces into vibrant, sustainable community hubs.',
+    slug: 'urban-renewal-project',
+  },
+  {
+    id: 8,
+    title: 'Guest House Commercial',
+    category: 'Commercial',
+    imageUrl: 'https://rqxpdjistljirrpgomtb.supabase.co/storage/v1/object/sign/nakshewale/images/projects/3/WhatsApp%20Image%202025-05-12%20at%2014.06.37_f4c6adef.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzU2NTczMmQzLTBiZTEtNGVlZi05M2Y5LWUyM2M5Y2EwYmM1MCJ9.eyJ1cmwiOiJuYWtzaGV3YWxlL2ltYWdlcy9wcm9qZWN0cy8zL1doYXRzQXBwIEltYWdlIDIwMjUtMDUtMTIgYXQgMTQuMDYuMzdfZjRjNmFkZWYuanBnIiwiaWF0IjoxNzQ3MjAxNDU2LCJleHAiOjQ5MDA4MDE0NTZ9.zm5BAFIG652pVzIFIDonA7b_GNjfw5welwv7cW1Z_go',
+    description: 'A comfortable guest house with strong commercial appeal.',
+    slug: 'guest-house-commercial',
+  }
 ];
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', 'Residential', 'Commercial', 'Public', 'Urban Planning'];
+  const categories = ['All', 'Residential', 'Commercial', 'Urban Planning'];
   const [animationReady, setAnimationReady] = useState(false);
   
   const filteredProjects = activeCategory === 'All' 
@@ -75,7 +90,6 @@ export function ProjectsSection() {
     : projects.filter(project => project.category === activeCategory);
 
   useEffect(() => {
-    // Set animation delay
     setTimeout(() => {
       setAnimationReady(true);
     }, 300);
@@ -95,7 +109,6 @@ export function ProjectsSection() {
           <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-2">Our Projects</h2>
           <p className="text-muted-foreground mb-10">Discover our portfolio of architectural excellence</p>
           
-          {/* Category Filter - with rounded buttons */}
           <div className="flex flex-wrap gap-2 mb-10">
             {categories.map((category) => (
               <button
@@ -113,7 +126,6 @@ export function ProjectsSection() {
           </div>
         </motion.div>
         
-        {/* Standard Grid - Equal sized items in a responsive grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <Link 

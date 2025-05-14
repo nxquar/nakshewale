@@ -94,7 +94,7 @@ export function Navbar() {
             "font-serif text-2xl font-semibold tracking-tighter",
             showCenteredLogo && "text-4xl text-white"
           )}>
-            NAKSHA
+            NAKSHEWALE
           </Link>
           
           {/* Desktop Navigation */}
@@ -134,11 +134,11 @@ export function Navbar() {
         {!showCenteredLogo && (
           <div className="hidden md:flex items-center gap-4">
             <a 
-              href="tel:+15551234567" 
+              href="https://wa.me/919876605658"
               className="flex items-center text-muted-foreground hover:text-orange-500 transition-colors"
             >
               <Phone size={18} className="mr-2" />
-              <span className="font-medium">+1 (555) 123-4567</span>
+              <span className="font-medium">+91 98766 05658</span>
             </a>
             
             <Button 

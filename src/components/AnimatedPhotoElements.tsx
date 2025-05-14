@@ -34,18 +34,18 @@ export function AnimatedPhotoElements() {
     <div ref={containerRef} className="relative h-full w-full">
       {/* Main image */}
       <motion.div 
-        className="rounded-2xl overflow-hidden shadow-lg"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <img 
-          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80" 
-          alt="Architecture studio" 
-          className="w-full h-auto rounded-2xl"
-        />
-      </motion.div>
-      
+  className="rounded-2xl overflow-hidden shadow-lg w-full h-[80vh]" // Adjust height here
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+>
+  <img 
+    src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80" 
+    alt="Architecture studio" 
+    className="w-full h-full object-cover rounded-2xl"
+  />
+</motion.div>
+
       {/* Floating elements */}
       <motion.div 
         className="floating-element absolute top-[-40px] right-[-20px] bg-[#9b87f5] rounded-full w-20 h-20 opacity-20"

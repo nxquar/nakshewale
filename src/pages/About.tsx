@@ -100,32 +100,41 @@ const About = () => {
           </div>
         </section>
         
-        {/* Our Story */}
-        <section className="py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="animate-on-scroll slide-up">
-                <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-6">Our Story</h2>
-                <p className="text-muted-foreground mb-6">
-                  Founded in 2005 by Ayşe Yurdaer, Naksha began as a small studio with a big vision: to create architectural spaces that harmoniously blend functionality, aesthetics, and sustainability.
-                </p>
-                <p className="text-muted-foreground mb-6">
-                  Over the past two decades, we have grown into a full-service architectural firm with a team of passionate professionals. Our journey has been marked by continuous learning, innovation, and a deep commitment to our clients' needs.
-                </p>
-                <p className="text-muted-foreground">
-                  Today, Naksha is recognized for its distinctive approach that respects cultural context, embraces technological advancement, and prioritizes environmental responsibility in every project we undertake.
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-lg animate-on-scroll slide-up">
-                <img 
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80" 
-                  alt="Naksha Studio Office" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+     {/* New Section Above "Our Philosophy" */}
+<section className="py-16 md:py-24 bg-gradient-to-b from-orange-50 to-white">
+  <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <div className="flex flex-col md:flex-row items-center justify-between">
+      {/* Left Side: Text Content */}
+      <motion.div
+        className="max-w-lg text-center md:text-left mb-8 md:mb-0"
+        custom={0}
+        initial="hidden"
+        animate={animationReady ? "visible" : "hidden"}
+        variants={staggerVariants}
+      >
+        <p className="text-lg text-muted-foreground">
+          We understand that design is not just about aesthetics—it’s about creating environments that influence emotions, productivity, and well-being. Our approach is rooted in a deep understanding of the needs of the people who will inhabit the spaces we create.
+        </p>
+      </motion.div>
+
+      {/* Right Side: Image */}
+      <motion.div
+        className="w-full md:w-1/2 lg:w-2/5"
+        custom={1}
+        initial="hidden"
+        animate={animationReady ? "visible" : "hidden"}
+        variants={staggerVariants}
+      >
+        <img
+          src= "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
+          alt="Design Concept"
+          className="w-full h-full object-cover object-center rounded-lg shadow-lg transition-transform duration-500 hover:scale-105"
+        />
+      </motion.div>
+    </div>
+  </div>
+</section>
+
         
         {/* Design Philosophy */}
         <section className="py-16 md:py-24 bg-orange-50">
@@ -285,12 +294,21 @@ const About = () => {
               className="inline-flex items-center gap-2 bg-white text-orange-600 px-8 py-3 rounded-full font-medium hover:bg-orange-50 transition-colors"
             >
               Start Your Project <Star className="h-4 w-4" />
+          
+          
             </a>
+         
+         {/* Appointment and Consultation Cards */}
+         
+         
+         <div className="mt-8">  {/* Added mt-8 for spacing */}
+           <ConsultationCard />
+         </div>
           </div>
+          
         </section>
       </main>
        
-            <ConsultationCard></ConsultationCard>
       <Footer />
       <ScrollToTop />
     </div>
