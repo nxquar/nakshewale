@@ -39,18 +39,23 @@ const teamMembers = [
 // Testimonials data
 const testimonials = [
   {
-    quote: "Naksha transformed our vision into a stunning reality. Their attention to detail and commitment to sustainability was impressive.",
-    author: "Leyla Aksoy, Residential Client"
+    quote: "The team at NAKSHEWALE transformed our vision into reality. Their attention to detail and innovative solutions exceeded our expectations and delivered a truly magnificent project.",
+    author: "Ravi Thakur"
   },
   {
-    quote: "Working with the Naksha team was a seamless experience. They understood our corporate needs and delivered a headquarters that reflects our brand ethos.",
-    author: "Ahmet Demir, CEO, Demir Enterprises"
+    quote: "Working with NAKSHEWALE has been a revelation. Their understanding of sustainable architecture and ability to blend aesthetic beauty with functionality is unmatched in the industry.",
+    author: "Amit Sharma"
   },
   {
-    quote: "The cultural center designed by Naksha has become a landmark in our city, drawing visitors from across the region.",
-    author: "Mayor Elif Yılmaz"
+    quote: "NAKSHEWALE's approach to urban planning has transformed our community projects. They listen, understand local needs, and create spaces that truly enhance community life.",
+    author: "Priya Sharma"
+  },
+  {
+    quote: "Our dream home became a reality thanks to NAKSHEWALE. They captured our vision perfectly while adding creative touches we never would have thought of ourselves.",
+    author: "Sandeep Thakur"
   }
 ];
+
 
 // Awards and recognitions
 const awards = [
@@ -183,7 +188,7 @@ const About = () => {
           </div>
         </section>
         
-        {/* Team Section */}
+        {/* Team Section
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -220,7 +225,7 @@ const About = () => {
             </div>
           </div>
         </section>
-        
+         */}
         {/* Testimonials */}
         <section className="py-16 md:py-24 bg-orange-50">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -250,7 +255,7 @@ const About = () => {
           </div>
         </section>
         
-        {/* Awards */}
+        {/* Awards
         <section className="py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -277,7 +282,7 @@ const About = () => {
             </div>
           </div>
         </section>
-        
+         */}
         {/* Call to Action */}
         <section className="py-16 md:py-24 bg-orange-500 text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
