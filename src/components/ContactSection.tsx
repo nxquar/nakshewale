@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { ConsultationCard } from './ConsultationCard';
 
@@ -21,8 +20,8 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-medium mb-1">Visit Us</h3>
                   <p className="text-muted-foreground">
-                    123 Architecture Street<br />
-                    Istanbul, Turkey 34000
+                    Main Market Talwara, Mukerian<br />
+                    Hoshiarpur, Punjab, India
                   </p>
                 </div>
               </div>
@@ -33,7 +32,10 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Call Us</h3>
-                  <p className="text-muted-foreground">+90 212 123 4567</p>
+                  <p className="text-muted-foreground">
+                    +91-9876605658<br />
+                    +91-9417680658
+                  </p>
                 </div>
               </div>
               
@@ -43,7 +45,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Email Us</h3>
-                  <p className="text-muted-foreground">info@yurdaermimarlik.com</p>
+                  <p className="text-muted-foreground">Nakshewale@hotmail.com</p>
                 </div>
               </div>
               

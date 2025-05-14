@@ -13,29 +13,29 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const contactInfo = [
-    {
-      icon: <MapPin className="text-orange-500 mb-4" size={32} />,
-      title: "Our Address",
-      content: "123 Architecture Street\nIstanbul, Turkey 34000"
-    },
-    {
-      icon: <Phone className="text-orange-500 mb-4" size={32} />,
-      title: "Phone Number",
-      content: "+90 212 123 4567\n+90 533 123 4567 (WhatsApp)"
-    },
-    {
-      icon: <Mail className="text-orange-500 mb-4" size={32} />,
-      title: "Email Address",
-      content: "info@yurdaermimarlik.com\ncontact@yurdaermimarlik.com"
-    },
-    {
-      icon: <Clock className="text-orange-500 mb-4" size={32} />,
-      title: "Working Hours",
-      content:
-        "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: By appointment only\nSunday: Closed"
-    }
-  ];
+const contactInfo = [
+  {
+    icon: <MapPin className="text-orange-500 mb-4" size={32} />,
+    title: "Our Address",
+    content: "Main Market Talwara,\nMukerian, Hoshiarpur,\nPunjab, India"
+  },
+  {
+    icon: <Phone className="text-orange-500 mb-4" size={32} />,
+    title: "Phone Number",
+    content: "+91-9876605658\n+91-9417680658"
+  },
+  {
+    icon: <Mail className="text-orange-500 mb-4" size={32} />,
+    title: "Email Address",
+    content: "Nakshewale@hotmail.com"
+  },
+  {
+    icon: <Clock className="text-orange-500 mb-4" size={32} />,
+    title: "Working Hours",
+    content: "Monday - Saturday: 9:00 AM - 6:00 PM\nSunday: Closed"
+  }
+];
+
 
   return (
     <div className="min-h-screen flex flex-col">
